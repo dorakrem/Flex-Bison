@@ -11,7 +11,7 @@ analysis.
 3. Creation of Pseudo-code for a language that followed same grammar and syntax rules as XML
 * Developed pseudo-code for the custom language that followed the same grammar and syntax rules as XML. This pseudo-code helped in visualizing and testing the compiler’s functionality.
 
-# Technologies and Frameworks:
+Technologies and Frameworks:
 * Flex: For generating the lexical analyzer.
 * Bison: For generating the parser.
 * Sublime Text: As the text editor for writing code and configurations.
