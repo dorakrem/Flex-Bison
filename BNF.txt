@@ -1,0 +1,80 @@
+<root> ::= <Linear_Layout> | <Relative_Layout>
+
+
+<Relative_Layout> ::= <RelativeLayout android:layout_width=<type> android:layout_height=<type>><Content_Relative></RelativeLayout>
+		     |<RelativeLayout android:layout_width=<type> android:layout_height=<type> android:id= <string>><Content_Relative></RelativeLayout>
+	             |<RelativeLayout android:layout_width=<type> android:layout_height=<type>/> //το περιεχόμενο μπορεί να είναι κενό
+		     |<RelativeLayout android:layout_width=<type> android:layout_height=<type> android:id= <string>/> //το περιεχόμενο μπορεί να είναι κενό
+
+<type> ::= <string>|<pos_int>
+
+<Linear_Layout> ::= <LinearLayout android:layout_width=<type> android:layout_height=<type>><Content_Linear></LinearLayout>
+		   |<LinearLayout android:layout_width=<type> android:layout_height=<type> <optional_attributes_Linear>><Content_Linear></LinearLayout>
+
+<optional_attributes_Linear> ::= android:id=<string> 
+				 | android:orientation=<string> 
+				 | android:id=<string> android:orientation=<string>
+				 | android:orientation=<string> android:id=<string>
+
+<Content_Relative>::= <Content> | <Content_Relative> <Content> 
+
+<Content_Linear>::= <Content> | <Content_Linear> <Content> 
+
+<Content>::=<Relative_Layout>|<Linear_Layout>|<Text_View>|<Image_View>|<button>|<Radio_Group>|<Progress_Bar>
+
+<Text_View> ::= <TextView android:layout_width=<type> android:layout_height=<type> android:text=<string>/>
+		|<TextView android:layout_width=<type> android:layout_height=<type> android:text=<string> <optional_attributes_TextView>/>
+
+<optional_attributes_TextView> ::= android:id=<string> 
+				 | android:textColor=<string> 
+				 | android:id=<string> android:textColor=<string>
+				 | android:textColor=<string> android:id=<string>
+
+<Image_View> ::= <ImageView android:layout_width=<type> android:layout_height=<type> android:src=<string>/>
+		|<ImageView android:layout_width=<type> android:layout_height=<type> android:src=<string> <optional_attributes_ImageView>/>
+
+<optional_attributes_ImageView> ::= android:id=<string> 
+				 | android:padding=<pos_int> 
+				 | android:id=<string> android:padding=<pos_int>	
+				 | android:padding=<pos_int> android:id=<string>
+
+<button> ::= <Button android:layout_width=<type> android:layout_height=<type> android:text=<string>/>
+	    |<Button android:layout_width=<type> android:layout_height=<type> android:text=<string> <optional_attributes_Button>/>
+
+<optional_attributes_Button> ::= android:id=<string> 
+				 | android:padding=<pos_int> 
+				 | android:id=<string> android:padding=<pos_int> 
+				 | android:padding=<pos_int> android:id=<string>
+
+<Radio_Group> ::= <RadioGroup android:layout_width=<type> android:layout_height=<type>><Radio_Button><RadioGroup/>
+		|<RadioGroup android:layout_width=<type> android:layout_height=<type> <optional_attributes_RadioGroup>><Radio_Button><RadioGroup/>
+
+<optional_attributes_RadioGroup> ::= android:id=<string> 
+				|android:checkedButton=<string>
+				|android:id=<string> android:checkedButton=<string>
+				|android:checkedButton=<string> android:id=<string>
+
+<Radio_Button> ::= <RadioButton android:layout_width=<type> android:layout_height=<type> android:text=<string>/>
+		|<RadioButton android:layout_width=<type> android:layout_height=<type> android:text=<string> android:id=<string>/>
+
+<Progress_Bar> ::= <ProgressBar android:layout_width=<type> android:layout_height=<type>/>
+		|<ProgressBar android:layout_width=<type> android:layout_height=<type> <optional_attributes_ProgressBar>/>
+
+<optional_attributes_ProgressBar> ::= android:id=<string> 
+				|android:max=<pos_int>
+				|android:progress=<pos_int> 
+				|ε
+				|android:id=<string> <optional_attributes_ProgressBar> 
+				| android:max=<pos_int> <optional_attributes_ProgressBar> 
+				| android:progress=<pos_int> <optional_attributes_ProgressBar> 
+
+<comments> ::= <!--<string>-->
+
+<pos_int> ::= <non_zero> | <non_zero> <int>
+<string> ::= <letter> | <int> | <symbol> | <letter> <string> | <int> <string> |  <symbol> <string>
+
+<letter> ::= a | b | ... | z | A | B | ... | Z
+<digit> ::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+<non_zero> ::= 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+<int> ::= <digit> | <digit> <int> 
+<symbol> ::= '_' | '{' | '}' | '(' | ')' | ... | ',' | '?' | '.'
