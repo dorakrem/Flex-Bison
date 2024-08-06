@@ -1,5 +1,6 @@
 # Compiler build of an XML-like programming language
 
+A 4 member-team project for the CEID course of Principles of Programming Languages.
 Created a compiler and a parser using the tools Flex and Bison for lexical and grammar
 analysis.
 
